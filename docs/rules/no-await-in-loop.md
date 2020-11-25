@@ -17,7 +17,7 @@ async function foo(things) {
     // Bad: each loop iteration is delayed until the entire asynchronous operation completes
     results.push(await bar(thing));
   }
-  return baz(results);
+  return bar(results);
 }
 ```
 
@@ -29,7 +29,7 @@ async function foo(things) {
     results.push(bar(thing));
   }
   // Now that all the asynchronous operations are running, here we wait until they all complete.
-  return baz(await Promise.all(results));
+  return bar(await Promise.all(results));
 }
 ```
 
@@ -51,7 +51,7 @@ async function foo(things) {
     results.push(bar(thing));
   }
   // Now that all the asynchronous operations are running, here we wait until they all complete.
-  return baz(await Promise.all(results));
+  return bar(await Promise.all(results));
 }
 ```
 
@@ -66,7 +66,7 @@ async function foo(things) {
     // Bad: each loop iteration is delayed until the entire asynchronous operation completes
     results.push(await bar(thing));
   }
-  return baz(results);
+  return bar(results);
 }
 ```
 
